@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2a66ea31-2e22-46ac-9173-ed0e284cd9cb" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1SAPyEDquAoae2YmkaBmArlgSPV" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jvasq\PycharmProjects\TargetTrackerV1" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="template_finder" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="TargetTrackerV1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/template_finder.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.template_finder" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2a66ea31-2e22-46ac-9173-ed0e284cd9cb" name="Default Changelist" comment="" />
+      <created>1571003686562</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1571003686562</updated>
+      <workItem from="1571003714560" duration="9722000" />
+      <workItem from="1571021639491" duration="2535000" />
+      <workItem from="1571099222679" duration="8106000" />
+      <workItem from="1571110308557" duration="1027000" />
+      <workItem from="1571179667258" duration="9683000" />
+      <workItem from="1571347256382" duration="4912000" />
+      <workItem from="1572741282458" duration="31206000" />
+      <workItem from="1573165513446" duration="17341000" />
+      <workItem from="1573518160369" duration="1510000" />
+      <workItem from="1573609200483" duration="1788000" />
+      <workItem from="1573611026853" duration="1779000" />
+      <workItem from="1573968612668" duration="1778000" />
+      <workItem from="1573970425538" duration="1883000" />
+      <workItem from="1573972335720" duration="1877000" />
+      <workItem from="1573974243136" duration="869000" />
+      <workItem from="1573976764101" duration="668000" />
+      <workItem from="1574026442123" duration="1031000" />
+      <workItem from="1574214398802" duration="1742000" />
+      <workItem from="1574216178895" duration="1781000" />
+      <workItem from="1574217994555" duration="1778000" />
+      <workItem from="1574219803894" duration="345000" />
+      <workItem from="1574367382857" duration="1663000" />
+      <workItem from="1574369177030" duration="1766000" />
+      <workItem from="1574376363815" duration="10000" />
+      <workItem from="1574376730495" duration="414000" />
+      <workItem from="1574377394866" duration="1840000" />
+      <workItem from="1574379402260" duration="742000" />
+      <workItem from="1574894104482" duration="1196000" />
+      <workItem from="1574895942560" duration="1482000" />
+      <workItem from="1574897845297" duration="596000" />
+      <workItem from="1574900208191" duration="1611000" />
+      <workItem from="1575231793491" duration="144000" />
+      <workItem from="1579129965672" duration="289000" />
+      <workItem from="1580337815145" duration="1535000" />
+      <workItem from="1580339638880" duration="1073000" />
+      <workItem from="1581044833376" duration="1676000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/find_shot2.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TargetTrackerV1$template_finder.coverage" NAME="template_finder Coverage Results" MODIFIED="1572742099751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
