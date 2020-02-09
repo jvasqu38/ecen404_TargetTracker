@@ -60,10 +60,18 @@ def find_crosshairs(img):
             # draw the center of the circle
             cv2.circle(cimg, (i[0], i[1]), 2, (0, 0, 255), 3)  # draw circles on crosshairs
     # print(circles)
+    cv2.imshow('Pick a Target: ', cimg)
+    cv2.waitKey(0)
+    target = input('Which target will you be shooting at?: ')
+    target = int(target) - 1  # turns user input string into integer
+    x_crosshair = crosshair_center[target][0]  # assigns variable to x coordinate of chosen target
+    y_crosshair = crosshair_center[target][1]  # assigns variable to y coordinate of chosen target
     cv2.imshow('detected crosshairs', cimg)  # show the detected crosshairs
     cv2.waitKey(0)
 
     return list_of_centers, pix_per_inch, radius
+
+
 
 
 # /// This function finds similarities in two pictures and aligns those similarities in order to align the whole images//////
@@ -90,7 +98,7 @@ def alignImages(imB, imA):
 
     # Draw top matches
     imMatches = cv2.drawMatches(imB, keypoints1, imA, keypoints2, matches, None)
-    cv2.imwrite("matches.jpg", imMatches) #outputs image of matches
+    #cv2.imwrite("matches.jpg", imMatches) #outputs image of matches
 
     # Extract location of good matches
     points1 = np.zeros((len(matches), 2), dtype=np.float32)
@@ -110,6 +118,8 @@ def alignImages(imB, imA):
     return im1Reg, h
 
 
+
+
 # //////////////// This function resizes our images to the same width and height (in pixels) to be able to accurately
 # ////////////////////// csubtract them
 def resizeImages(IMA, IMB):
@@ -125,37 +135,43 @@ def resizeImages(IMA, IMB):
     return IMA, IMB
 
 
+
+
 # ////////////////////////////////Program Begins HERE/////////////////////////////////////////////////////////////////////////////////////
 # ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 # This code will take two input images. The first image will be our target before a shot has been taken, the second image will be the
 # the target AFTER the shot has been taken
 
-again = 1  # preassign variable again value of 1. Again defines whether the user will want to input more images (take
+
+#again = 1  # preassign variable again value of 1. Again defines whether the user will want to input more images (take
 # more shots) 1=yes, 0 = np
-first = 1  # preassign value of 1 to first (this tells the code that it will be the first time running through an
+#first = 1  # preassign value of 1 to first (this tells the code that it will be the first time running through an
 # iteration of the whole code)
 
-while again == 1:  # The whole code will keep running while again =1
-    if first == 1:  # This if statement will only be entered once in the beginning
+#while again == 1:  # The whole code will keep running while again =1
+ #   if first == 1:  # This if statement will only be entered once in the beginning
 
         # construct the argument parse and parse the arguments
         # to run this program in terminal: python find_shot2.py --first image1name --second image2name
-        ap = argparse.ArgumentParser()
-        ap.add_argument("-f", "--first", required=True,  # takes as input our first image name
-                        help="first input image")
-        ap.add_argument("-s", "--second", required=True,  # takes as input our second image name
-                        help="second")
-        args = vars(ap.parse_args())
-        imageA = cv2.imread(args["first"])  # load first image into python cv array (
-        imageB = cv2.imread(args["second"])  # load 2nd image into python cv array
-        copy_B = imageB.copy()  # make an untouched copy of second image for later use
-        distance_to_target_center_list = []  # assign variable as a list
+  #      ap = argparse.ArgumentParser()
+   #     ap.add_argument("-f", "--first", required=True,  # takes as input our first image name
+                        #help="first input image")
+    #    ap.add_argument("-s", "--second", required=True,  # takes as input our second image name
+                       # help="second")
+     #   args = vars(ap.parse_args())
 
-    elif first == 0:  # this if statement will be entered every iteration of the code after the first
-        img_name = input("input new image name: ")  # user is asked to input new image with another shot hole
-        imageB = cv2.imread(img_name)  # load image into cv array
-        imageA = last_image.copy()  # assign last_image, which is copy_B , to imageA
-        copy_B = imageB.copy()  # once again make an untouched copy of imageB for later use
+
+def processimage(imageA, imageB):
+        #imageA = cv2.imread(args["first"])  # load first image into python cv array (
+       #imageB = cv2.imread(args["second"])  # load 2nd image into python cv array
+        #copy_B = imageB.copy()  # make an untouched copy of second image for later use
+    distance_to_target_center_list = []  # assign variable as a list
+
+   # elif first == 0:  # this if statement will be entered every iteration of the code after the first
+       # img_name = input("input new image name: ")  # user is asked to input new image with another shot hole
+      #  imageB = cv2.imread(img_name)  # load image into cv array
+       # imageA = last_image.copy()  # assign last_image, which is copy_B , to imageA
+       # copy_B = imageB.copy()  # once again make an untouched copy of imageB for later use
 
     imageB, h = alignImages(imageB, imageA)  # this will enter our alignImages function
     imageA, imageB = resizeImages(imageA, imageB)  # this will enter our resizeImages function
@@ -303,8 +319,8 @@ while again == 1:  # The whole code will keep running while again =1
     cv2.imshow("Thresh", thresh)
     cv2.waitKey(0)
     # ask the user if he will be shooting again
-    again = input('WIll you shoot again yes(1), no (0): ')
-    again = int(again)  # assign variable again to either 1 or 2
-    first = 0;  # change value of variable 'first'
-    last_image = copy_B.copy();  # make a copy of clean version of second image to become first
+    #again = input('WIll you shoot again yes(1), no (0): ')
+    #again = int(again)  # assign variable again to either 1 or 2
+   # first = 0;  # change value of variable 'first'
+    #last_image = copy_B.copy();  # make a copy of clean version of second image to become first
     # in next iteration

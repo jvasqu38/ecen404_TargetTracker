@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a66ea31-2e22-46ac-9173-ed0e284cd9cb" name="Default Changelist" comment="" />
+    <list default="true" id="2a66ea31-2e22-46ac-9173-ed0e284cd9cb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/ecen404_TargetTracker.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image_copy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TargetTrackerV1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TargetTrackerV1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/20191107_201143.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/20191107_201146.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/20191107_201153.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/event_notify.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/find_shot2.py" beforeDir="false" afterPath="$PROJECT_DIR$/find_shot2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image0_set1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image0_set2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image0_set3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image1_set1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image1_set2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image1_set3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image2_set1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image2_set2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image2_set3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image3_set1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image3_set2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matches.jpg" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +40,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1SAPyEDquAoae2YmkaBmArlgSPV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -119,11 +149,30 @@
       <workItem from="1580337815145" duration="1535000" />
       <workItem from="1580339638880" duration="1073000" />
       <workItem from="1581044833376" duration="1676000" />
+      <workItem from="1581140244821" duration="1776000" />
+      <workItem from="1581142055208" duration="1801000" />
+      <workItem from="1581143885348" duration="1778000" />
+      <workItem from="1581145696515" duration="1778000" />
+      <workItem from="1581223998474" duration="163000" />
+      <workItem from="1581224335977" duration="7940000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
