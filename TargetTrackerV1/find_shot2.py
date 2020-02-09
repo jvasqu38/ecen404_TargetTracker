@@ -7,6 +7,8 @@ import imutils
 import cv2
 import statistics
 import numpy as np
+import settings
+settings.init()
 
 MAX_FEATURES = 500  # global constant used in alignImages function
 GOOD_MATCH_PERCENT = 0.18  # global constant used in alignImages function
@@ -38,7 +40,7 @@ def find_crosshairs(img):
     for i in circles[0, :]:
         # draw the outer circle
         if i[0] > 60 and i[0] < 500 and i[1] > 100 and i[1] < 800:
-            cv2.circle(cimg, (i[0], i[1]), i[2], (0, 255, 0), 2)
+            #cv2.circle(cimg, (i[0], i[1]), i[2], (0, 255, 0), 2)
             x_center, y_center = i[0], i[1]  # extract coordinates of center of circle
             x_coor.append(i[0])
             crosshair_center = tuple([x_center, y_center])  # create tuple of xy coordinates
@@ -60,14 +62,21 @@ def find_crosshairs(img):
             # draw the center of the circle
             cv2.circle(cimg, (i[0], i[1]), 2, (0, 0, 255), 3)  # draw circles on crosshairs
     # print(circles)
+    i=1
+    for xy in settings.list_of_centers:
+        cv2.circle(cimg, xy, settings.radius, (0, 255, 255), 2)
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(cimg, str(i), xy, font, 1, (200, 255, 155), 2, cv2.LINE_AA)
+        i = i + 1
+
     cv2.imshow('Pick a Target: ', cimg)
     cv2.waitKey(0)
-    target = input('Which target will you be shooting at?: ')
-    target = int(target) - 1  # turns user input string into integer
-    x_crosshair = crosshair_center[target][0]  # assigns variable to x coordinate of chosen target
-    y_crosshair = crosshair_center[target][1]  # assigns variable to y coordinate of chosen target
-    cv2.imshow('detected crosshairs', cimg)  # show the detected crosshairs
-    cv2.waitKey(0)
+    settings.target = input('Which target will you be shooting at?: ')
+    settings.target = int(settings.target) - 1  # turns user input string into integer
+    settings.x_crosshair = list_of_centers[settings.target][0]  # assigns variable to x coordinate of chosen target
+    settings.y_crosshair = list_of_centers[settings.target][1]  # assigns variable to y coordinate of chosen target
+   #cv2.imshow('detected crosshairs', cimg)  # show the detected crosshairs
+   # cv2.waitKey(0)
 
     return list_of_centers, pix_per_inch, radius
 
@@ -183,29 +192,30 @@ def processimage(imageA, imageB):
     while i < times:
         imageB, h = alignImages(imageB, imageA)
         i += 1
-
+    copy_A = imageA.copy()
+    copy_B = imageB.copy()
     # find targets and their coordinates
     imageC = imageA.copy()  # we need a copy of our image as we will be drawing on it
-    crosshair_center = []  # preassign variable as list
-    crosshair_center, pixelsperinch, radius = find_crosshairs(imageC)  # this function will return three values
+    #crosshair_center = []  # preassign variable as list
+    #crosshair_center, pixelsperinch, radius = find_crosshairs(imageC)  # this function will return three values
     # print(crosshair_center)
 
     # these 5 lines of code will draw circles around our crosshairs and label them for the user
     # to be able to pick which one he wants to shoot at
-    i = 1
-    for xy in crosshair_center:
-        cv2.circle(imageC, xy, radius, (0, 255, 255), 2)
-        font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(imageC, str(i), xy, font, 1, (200, 255, 155), 2, cv2.LINE_AA)
-        i = i + 1
+    #i = 1
+    #for xy in settings.list_of_centers:
+     #   cv2.circle(imageC, xy, settings.radius, (0, 255, 255), 2)
+      #  font = cv2.FONT_HERSHEY_SIMPLEX
+       # cv2.putText(imageC, str(i), xy, font, 1, (200, 255, 155), 2, cv2.LINE_AA)
+        #i = i + 1
 
     # Will be asking the user to pick which target he will be shooting at
-    cv2.imshow('Pick a Target: ', imageC)
-    cv2.waitKey(0)
-    target = input('Which target will you be shooting at?: ')
-    target = int(target) - 1  # turns user input string into integer
-    x_crosshair = crosshair_center[target][0]  # assigns variable to x coordinate of chosen target
-    y_crosshair = crosshair_center[target][1]  # assigns variable to y coordinate of chosen target
+    #cv2.imshow('Pick a Target: ', imageC)
+    #cv2.waitKey(0)
+    #target = input('Which target will you be shooting at?: ')
+    #target = int(target) - 1  # turns user input string into integer
+    #settings.x_crosshair = settings.list_of_centers[target][0]  # assigns variable to x coordinate of chosen target
+    #settings.y_crosshair = settings.list_of_centers[target][1]  # assigns variable to y coordinate of chosen target
 
     # ///////////here we will begin our image subtraction algorithm///////////
     # this will find the shot hole
@@ -256,8 +266,8 @@ def processimage(imageA, imageB):
         heightA, widthA, channelA = imageA.shape
 
         # conditional statement to ignore contours outside a radius of 4 inches from our chosen target
-        if abs(x - x_crosshair) * pixelsperinch ** -1 < 4 and abs(
-                y_crosshair - y) * pixelsperinch ** -1 < 4:
+        if abs(x - settings.x_crosshair) * settings.pix_per_inch ** -1 < 4 and abs(
+                settings.y_crosshair - y) * settings.pix_per_inch ** -1 < 4:
 
             # filter our contours with micro areas and contours with too large areas
             if area > avg_area / 2 and area < picture_area / 10:
@@ -276,8 +286,8 @@ def processimage(imageA, imageB):
                         shot_coor_y = y  # assign variable to y coordinate of shot location
 
                         # calculate the horizontal and vertical distance between our shot and the target center
-                        horizontal_diff = (x + w / 2 - x_crosshair) * pixelsperinch ** -1  # positive means right
-                        vertical_diff = (y_crosshair - y - h / 2) * pixelsperinch ** -1  # positive means high
+                        horizontal_diff = (x + w / 2 - settings.x_crosshair) * settings.pix_per_inch ** -1  # positive means right
+                        vertical_diff = (settings.y_crosshair - y - h / 2) * settings.pix_per_inch ** -1  # positive means high
 
                         # calculate total distance from shot location to target location in inches
                         distance_to_target_center = (horizontal_diff ** 2 + vertical_diff ** 2) ** (
@@ -286,7 +296,7 @@ def processimage(imageA, imageB):
                         distance_to_target_center_list.append(distance_to_target_center)  # create  list of distances
 
                         # draw a line from the center of the crosshair to the shot location
-                        cv2.line(imageB, (int(x + w / 2), int(y + h / 2)), (crosshair_center[target]), (0, 255, 0), 2)
+                        cv2.line(imageB, (int(x + w / 2), int(y + h / 2)), (settings.list_of_centers[settings.target]), (0, 255, 0), 2)
                         # output distances from hole to target to the user
                         if horizontal_diff <= 0:
                             print('Hit too left by: ' + str(abs(horizontal_diff)) + ' in')
@@ -301,8 +311,8 @@ def processimage(imageA, imageB):
 
     i = str(i)
     # draw a circle around the chosen target
-    for xy in crosshair_center:
-        cv2.circle(imageB, (x_crosshair, y_crosshair), radius, (0, 255, 255), 2)
+    for xy in settings.list_of_centers:
+        cv2.circle(imageB, (settings.x_crosshair, settings.y_crosshair), settings.radius, (0, 255, 255), 2)
     # print('number of matches: ' + i)
     # show the output images
 
@@ -324,3 +334,4 @@ def processimage(imageA, imageB):
    # first = 0;  # change value of variable 'first'
     #last_image = copy_B.copy();  # make a copy of clean version of second image to become first
     # in next iteration
+    return copy_A, copy_B

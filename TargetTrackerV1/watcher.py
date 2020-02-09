@@ -2,6 +2,7 @@ import os
 import settings
 import cv2
 from find_shot2 import processimage
+from find_shot2 import find_crosshairs
 from watchdog.events import RegexMatchingEventHandler
 import sys
 import time
@@ -32,18 +33,18 @@ class ImagesEventHandler(RegexMatchingEventHandler):
 
         if settings.Iterations == 1:
             settings.imageA = cv2.imread(filename)
-            cv2.imshow('original', settings.imageA)
-            cv2.waitKey(0)
+            settings.list_of_centers, settings.pix_per_inch, settings.radius = find_crosshairs(settings.imageA)
             print('i=1')
             settings.Iterations = settings.Iterations + 1
 
         else:
             print('i=/1')
-            processimage(settings.imageA, imageB)
+            settings.imageA, imageB = processimage(settings.imageA, imageB)
             #cv2.imshow('A', settings.imageA)
             #cv2.imshow('B', imageB)
             #cv2.waitKey(0)
             settings.imageA = imageB
+            settings.list_of_centers, settings.pix_per_inch, settings.radius = find_crosshairs(settings.imageA)
             settings.Iterations = settings.Iterations + 1
 
 

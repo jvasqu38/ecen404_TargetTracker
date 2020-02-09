@@ -2,30 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a66ea31-2e22-46ac-9173-ed0e284cd9cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/ecen404_TargetTracker.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_copy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TargetTrackerV1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TargetTrackerV1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/20191107_201143.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/20191107_201146.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/20191107_201153.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/event_notify.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/find_shot2.py" beforeDir="false" afterPath="$PROJECT_DIR$/find_shot2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image0_set1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image0_set2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image0_set3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image1_set1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image1_set2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image1_set3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image2_set1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image2_set2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image2_set3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image3_set1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image3_set2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matches.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/watcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/watcher.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +134,7 @@
       <workItem from="1581143885348" duration="1778000" />
       <workItem from="1581145696515" duration="1778000" />
       <workItem from="1581223998474" duration="163000" />
-      <workItem from="1581224335977" duration="7940000" />
+      <workItem from="1581224335977" duration="11602000" />
     </task>
     <servers />
   </component>

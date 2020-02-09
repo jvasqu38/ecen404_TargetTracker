@@ -4,4 +4,9 @@ def init():
     global imageA
     global x_crosshair
     global y_crosshair
+    global list_of_centers
+    list_of_centers = []
+    global pix_per_inch
+    global radius
+    global target
 
