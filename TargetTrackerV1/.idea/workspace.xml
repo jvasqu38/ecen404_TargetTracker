@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a66ea31-2e22-46ac-9173-ed0e284cd9cb" name="Default Changelist" comment="" />
+    <list default="true" id="2a66ea31-2e22-46ac-9173-ed0e284cd9cb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/find_shot2.py" beforeDir="false" afterPath="$PROJECT_DIR$/find_shot2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/watcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/watcher.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +135,8 @@
       <workItem from="1581145696515" duration="1778000" />
       <workItem from="1581223998474" duration="163000" />
       <workItem from="1581224335977" duration="11814000" />
+      <workItem from="1581287513861" duration="39000" />
+      <workItem from="1581370510776" duration="3241000" />
     </task>
     <servers />
   </component>

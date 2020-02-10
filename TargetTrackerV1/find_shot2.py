@@ -63,22 +63,22 @@ def find_crosshairs(img):
             cv2.circle(cimg, (i[0], i[1]), 2, (0, 0, 255), 3)  # draw circles on crosshairs
     # print(circles)
     i=1
-    for xy in settings.list_of_centers:
-        cv2.circle(cimg, xy, settings.radius, (0, 255, 255), 2)
+    for xy in list_of_centers:
+        cv2.circle(cimg, xy, radius, (0, 255, 255), 2)
         font = cv2.FONT_HERSHEY_SIMPLEX
         cv2.putText(cimg, str(i), xy, font, 1, (200, 255, 155), 2, cv2.LINE_AA)
         i = i + 1
 
     cv2.imshow('Pick a Target: ', cimg)
     cv2.waitKey(0)
-    settings.target = input('Which target will you be shooting at?: ')
-    settings.target = int(settings.target) - 1  # turns user input string into integer
-    settings.x_crosshair = list_of_centers[settings.target][0]  # assigns variable to x coordinate of chosen target
-    settings.y_crosshair = list_of_centers[settings.target][1]  # assigns variable to y coordinate of chosen target
+    target = input('Which target will you be shooting at?: ')
+    target = int(target) - 1  # turns user input string into integer
+    settings.x_crosshair = list_of_centers[target][0]  # assigns variable to x coordinate of chosen target
+    settings.y_crosshair = list_of_centers[target][1]  # assigns variable to y coordinate of chosen target
    #cv2.imshow('detected crosshairs', cimg)  # show the detected crosshairs
    # cv2.waitKey(0)
 
-    return list_of_centers, pix_per_inch, radius
+    return list_of_centers, pix_per_inch, radius, target
 
 
 
@@ -171,16 +171,7 @@ def resizeImages(IMA, IMB):
 
 
 def processimage(imageA, imageB):
-        #imageA = cv2.imread(args["first"])  # load first image into python cv array (
-       #imageB = cv2.imread(args["second"])  # load 2nd image into python cv array
-        #copy_B = imageB.copy()  # make an untouched copy of second image for later use
     distance_to_target_center_list = []  # assign variable as a list
-
-   # elif first == 0:  # this if statement will be entered every iteration of the code after the first
-       # img_name = input("input new image name: ")  # user is asked to input new image with another shot hole
-      #  imageB = cv2.imread(img_name)  # load image into cv array
-       # imageA = last_image.copy()  # assign last_image, which is copy_B , to imageA
-       # copy_B = imageB.copy()  # once again make an untouched copy of imageB for later use
 
     imageB, h = alignImages(imageB, imageA)  # this will enter our alignImages function
     imageA, imageB = resizeImages(imageA, imageB)  # this will enter our resizeImages function
@@ -194,11 +185,6 @@ def processimage(imageA, imageB):
         i += 1
     copy_A = imageA.copy()
     copy_B = imageB.copy()
-    # find targets and their coordinates
-    imageC = imageA.copy()  # we need a copy of our image as we will be drawing on it
-    #crosshair_center = []  # preassign variable as list
-    #crosshair_center, pixelsperinch, radius = find_crosshairs(imageC)  # this function will return three values
-    # print(crosshair_center)
 
     # these 5 lines of code will draw circles around our crosshairs and label them for the user
     # to be able to pick which one he wants to shoot at
@@ -223,8 +209,8 @@ def processimage(imageA, imageB):
     # convert the images to grayscale
     grayA = cv2.cvtColor(imageA, cv2.COLOR_BGR2GRAY)
     grayB = cv2.cvtColor(imageB, cv2.COLOR_BGR2GRAY)
-    cv2.imshow('Grayscale',grayA)
-    cv2.waitKey(0)
+    #cv2.imshow('Grayscale',grayA)
+    #cv2.waitKey(0)
     # compute the Structural Similarity Index (SSIM) between the two
     # images, ensuring that the difference image is returned
     (score, diff) = compare_ssim(grayA, grayB, full=True)
@@ -279,7 +265,7 @@ def processimage(imageA, imageB):
                     if x > 0 + widthA / 8 and x < widthA - widthA / 8 and y > 0 + heightA / 8 and y < heightA - heightA / 8:
                         i = i + 1
                         # if the contour got through the filters, will will draw a circle around it
-                        cv2.circle(imageA, (int(x + w / 2), int(y + h / 2)), 3, (0, 0, 255), 2)
+                        #cv2.circle(imageA, (int(x + w / 2), int(y + h / 2)), 3, (0, 0, 255), 2)
                         cv2.circle(imageB, (int(x + w / 2), int(y + h / 2)), 3, (0, 0, 255), 2)
 
                         shot_coor_x = x  # assign variable to x coordinate of shot locations
@@ -323,10 +309,12 @@ def processimage(imageA, imageB):
         print('The average distance from the center of the target is: ' + str(
             avg_distance) + ' with a standard deviation of: ' + str(std_dev))
     # show images with spotted hole
-    cv2.imshow("Original", imageA)
-    cv2.imshow("Modified", imageB)
-    cv2.imshow("Diff", diff)
-    cv2.imshow("Thresh", thresh)
+    cv2.imshow("Before", imageA)
+    cv2.imshow("After", copy_B)
+    cv2.waitKey(0)
+    cv2.imshow("Hit Found!", imageB)
+    #cv2.imshow("Diff", diff)
+    #cv2.imshow("Thresh", thresh)
     cv2.waitKey(0)
     # ask the user if he will be shooting again
     #again = input('WIll you shoot again yes(1), no (0): ')

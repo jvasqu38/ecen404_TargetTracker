@@ -27,24 +27,25 @@ class ImagesEventHandler(RegexMatchingEventHandler):
         filename, ext = os.path.splitext(event.src_path)
         filename = f"{filename}.jpg"
 
-        imageB = cv2.imread(filename)
+        settings.imageB = cv2.imread(filename)
 
 
 
         if settings.Iterations == 1:
             settings.imageA = cv2.imread(filename)
-            settings.list_of_centers, settings.pix_per_inch, settings.radius = find_crosshairs(settings.imageA)
+            #need to scale image and align first
+            settings.list_of_centers, settings.pix_per_inch, settings.radius, settings.target = find_crosshairs(settings.imageA)
             print('i=1')
             settings.Iterations = settings.Iterations + 1
 
         else:
             print('i=/1')
-            settings.imageA, imageB = processimage(settings.imageA, imageB)
+            settings.imageA, imageB = processimage(settings.imageA, settings.imageB)
             #cv2.imshow('A', settings.imageA)
             #cv2.imshow('B', imageB)
             #cv2.waitKey(0)
-            settings.imageA = imageB
-            settings.list_of_centers, settings.pix_per_inch, settings.radius = find_crosshairs(settings.imageA)
+            settings.imageA = settings.imageB
+            settings.list_of_centers, settings.pix_per_inch, settings.radius, settings.target = find_crosshairs(settings.imageA)
             settings.Iterations = settings.Iterations + 1
 
 
