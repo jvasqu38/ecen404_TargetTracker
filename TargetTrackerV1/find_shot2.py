@@ -169,6 +169,36 @@ def resizeImages(IMA, IMB):
                        # help="second")
      #   args = vars(ap.parse_args())
 
+def calcElevationSecondary(y_inches, scope_MOA):
+    # create list for elevation for continuing sessions
+    e2 = []
+    # if distance for y_inches is less than 0, then adjust elevation up
+    if y_inches < 0:
+        # append to list
+        e2.append('Adjust elevation control ' + str(abs(round(y_inches/scope_MOA))) + ' clicks up')
+    # if distance for y_inches is greater than 0, then adjust elevation down
+    else:
+        # append to list
+        e2.append('Adjust elevation control ' + str(abs(round(y_inches/scope_MOA))) + ' clicks down')
+    # return the number of clicks from first index of list
+    return e2[0]
+
+# function to calcuation windage for continuing sessions
+# formula for windage = x_inches/(minute of angle)
+def calcWindageSecondary(x_inches, scope_MOA):
+    # create list for windage for continuing sessions
+    w2 = []
+    # if distance for x_inches is less than 0, then adjust windage right
+    if x_inches < 0:
+        # append to list
+        w2.append('Adjust windage control ' + str(abs(round(x_inches/scope_MOA))) + ' clicks right')
+    # if distance for x_inches is greater than 0, then adjust windage left
+    else:
+        # append to list
+        w2.append('Adjust windage control ' + str(abs(round(x_inches/scope_MOA))) + ' clicks left')
+    # return the number of clicks from first index of list
+    return w2[0]
+
 
 def processimage(imageA, imageB):
     distance_to_target_center_list = []  # assign variable as a list
@@ -294,7 +324,10 @@ def processimage(imageA, imageB):
                             print('Hit too low by: ' + str(abs(vertical_diff)) + ' in')
 
                         print('distance from center of target (in) ' + str(distance_to_target_center))
-
+    e2 = calcElevationSecondary(vertical_diff, .25)
+    w2 = calcWindageSecondary(horizontal_diff, .25)
+    print(e2)
+    print(w2)
     i = str(i)
     # draw a circle around the chosen target
     for xy in settings.list_of_centers:
