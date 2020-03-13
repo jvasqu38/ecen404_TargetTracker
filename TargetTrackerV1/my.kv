@@ -24,10 +24,40 @@ WindowManager:
 
 <MainWindow>:
     name: "main"
+    GridLayout:
+        rows:2
+        size: root.width, root.height
 
-    Button:
-        text: "Go Back"
-        on_release: app.root.current = "start"
+        GridLayout:
+            cols:3
+            height: root.height*1.2
+            Image:
+                id: Before
+                source: 'image2_set1.jpg'
+
+
+
+            Image:
+                id: After
+                source: 'image3_set1.jpg'
+
+
+            Image:
+                id: After
+                source: 'image3_set1.jpg'
+
+
+        GridLayout:
+            cols:2
+            height: root.height*.8
+            Button:
+                text: "switch target"
+
+            Button:
+                text: "End"
+
+
+
 
 
 

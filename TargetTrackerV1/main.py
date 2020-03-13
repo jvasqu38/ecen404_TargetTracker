@@ -15,6 +15,7 @@ from watcher import begin_watching
 
 class StartWindow(Screen):
     def pressed(self):
+        print("pressed")
         begin_watching()
         #src_path = sys.argv[1] if len(sys.argv) > 1 else '.' #runs watcher
         #ImagesWatcher(src_path).run() #runs watcher
@@ -33,8 +34,8 @@ class MyApp(App):
     def build(self):
         return kv
 
-#def begin_watching(src_path):
-  #  return
+def begin_watching():
+    return
 
 
 
