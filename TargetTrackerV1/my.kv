@@ -1,0 +1,37 @@
+WindowManager:
+    StartWindow:
+    MainWindow:
+
+<StartWindow>:
+    name: "start"
+
+    GridLayout:
+        cols:1
+
+        GridLayout:
+            cols:2
+
+            Label:
+                text: "pass"
+
+            TextInput:
+                id: passq
+                multiline: False
+            Button:
+                text: "Start"
+                on_press: app.root.current = "main"
+                on_release: root.pressed()
+
+<MainWindow>:
+    name: "main"
+
+    Button:
+        text: "Go Back"
+        on_release: app.root.current = "start"
+
+
+
+
+
+
+
