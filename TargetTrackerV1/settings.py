@@ -10,5 +10,7 @@ def init():
     global pix_per_inch
     global radius
     global target
+    global filename
+    filename = ""
 
 

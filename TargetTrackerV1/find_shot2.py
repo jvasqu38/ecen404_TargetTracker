@@ -71,14 +71,25 @@ def find_crosshairs(img):
 
     cv2.imshow('Pick a Target: ', cimg)
     cv2.waitKey(0)
-    target = input('Which target will you be shooting at?: ')
-    target = int(target) - 1  # turns user input string into integer
-    settings.x_crosshair = list_of_centers[target][0]  # assigns variable to x coordinate of chosen target
-    settings.y_crosshair = list_of_centers[target][1]  # assigns variable to y coordinate of chosen target
+    #while True:
+     #   try:
+     #       target = input('Which target will you be shooting at?: ')
+     #   except EOFError:
+     #       print("EOFError")
+       #     break
+    #target = input('Which target will you be shooting at?: ')
+    #target = int(target) - 1  # turns user input string into integer
+    #settings.x_crosshair = list_of_centers[target][0]  # assigns variable to x coordinate of chosen target
+    #settings.y_crosshair = list_of_centers[target][1]  # assigns variable to y coordinate of chosen target
    #cv2.imshow('detected crosshairs', cimg)  # show the detected crosshairs
    # cv2.waitKey(0)
+    return list_of_centers, pix_per_inch, radius
+    #return list_of_centers, pix_per_inch, radius, target
 
-    return list_of_centers, pix_per_inch, radius, target
+def find_coordinates():
+    settings.x_crosshair = settings.list_of_centers[settings.target][0]  # assigns variable to x coordinate of chosen target
+    settings.y_crosshair = settings.list_of_centers[settings.target][1]
+    return
 
 
 

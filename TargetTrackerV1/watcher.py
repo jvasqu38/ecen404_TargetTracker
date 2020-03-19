@@ -3,13 +3,18 @@ import settings
 import cv2
 from find_shot2 import processimage
 from find_shot2 import find_crosshairs
+from find_shot2 import find_coordinates
 from watchdog.events import RegexMatchingEventHandler
 import sys
 import time
 from watchdog.observers import Observer
+#from main import show_popup
 
 
 def begin_watching():
+    src_path = sys.argv[1] if len(sys.argv) > 1 else '.'  # these two were indented
+    print(src_path)
+
     class ImagesEventHandler(RegexMatchingEventHandler):
         THUMBNAIL_SIZE = (128, 128)
         IMAGES_REGEX = [r".*[^_thumbnail]\.jpg$"]
@@ -26,16 +31,20 @@ def begin_watching():
 
         def process(self, event):
             filename, ext = os.path.splitext(event.src_path)
-            filename = f"{filename}.jpg"
+            settings.filename = f"{filename}.jpg"
 
-            settings.imageB = cv2.imread(filename)
+            settings.imageB = cv2.imread(settings.filename)
 
 
 
             if settings.Iterations == 1:
-                settings.imageA = cv2.imread(filename)
+                settings.imageA = cv2.imread(settings.filename)
                 #need to scale image and align first
-                settings.list_of_centers, settings.pix_per_inch, settings.radius, settings.target = find_crosshairs(settings.imageA)
+                settings.list_of_centers, settings.pix_per_inch, settings.radius = find_crosshairs(settings.imageA)
+                #settings.list_of_centers, settings.pix_per_inch, settings.radius, settings.target = find_crosshairs(settings.imageA)
+                #show_popup()
+                find_coordinates()
+
                 print('i=1')
                 settings.Iterations = settings.Iterations + 1
 
@@ -85,7 +94,6 @@ def begin_watching():
             )
 
     settings.init()
-    #if __name__ == "__main__":
-    src_path = sys.argv[1] if len(sys.argv) > 1 else '.' #these two were indented
-    print(src_path)
     ImagesWatcher(src_path).run()
+
+    #if __name__ == "__main__":

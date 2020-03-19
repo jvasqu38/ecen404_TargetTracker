@@ -6,55 +6,59 @@ WindowManager:
     name: "start"
 
     GridLayout:
-        cols:1
+        cols: 2
+        size: root.width, root.height
 
-        GridLayout:
-            cols:2
+        Label:
+            text: "Welcome to Target Tracker, Press the 'Start' button to begin!"
 
-            Label:
-                text: "pass"
+        Button:
+            text: "Start"
+            on_press: root.pressed()
+            on_press: app.root.current = "main"
 
-            TextInput:
-                id: passq
-                multiline: False
-            Button:
-                text: "Start"
-                on_press: app.root.current = "main"
-                on_release: root.pressed()
 
 <MainWindow>:
     name: "main"
+    target_num: target_num
+
     GridLayout:
         rows:2
         size: root.width, root.height
 
         GridLayout:
             cols:3
-            height: root.height*1.2
-            Image:
-                id: Before
-                source: 'image2_set1.jpg'
+            AsyncImage:
+                id: before_image
+                source: root.img_path
 
 
 
-            Image:
-                id: After
-                source: 'image3_set1.jpg'
+            AsyncImage:
+                id: after_image
+                source: root.img_path
 
 
-            Image:
-                id: After
-                source: 'image3_set1.jpg'
+            AsyncImage:
+                id: pick_target_img
+                source: root.img_path
 
 
         GridLayout:
-            cols:2
-            height: root.height*.8
+            cols:3
+
+            TextInput:
+                id: target_num
+                multinline: False
+
             Button:
                 text: "switch target"
 
             Button:
-                text: "End"
+                text: "Submit"
+                on_press: root.pressed_main()
+
+
 
 
 
